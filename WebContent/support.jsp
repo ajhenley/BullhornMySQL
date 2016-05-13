@@ -4,12 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Bullhorn</title>
+<title>BullHorn</title>
 <jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
 <body background="/images/news_background.jpg">
-This is the advanced search page
+This is the support page
 <jsp:include page="navbar.jsp"></jsp:include>
+
+<div class="alert alert-success">
+  <strong>Profile</strong><br>
+   ${message}
+</div>
+
+<div class="alert alert-success">
+  <strong>Posts</strong><br>
+   ${message2}
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>BullHorn</title>
-<jsp:include page="/includes/bootstrap.jsp"></jsp:include>
+<jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
-<body>
-<jsp:include page="/includes/navbar.jsp"></jsp:include>
+<body background="/images/news_background.jpg">
+This is the profile page
+<jsp:include page="navbar.jsp"></jsp:include>
 
 <div class="alert alert-success">
   <strong>Profile</strong><br>
@@ -19,6 +20,6 @@
   <strong>Posts</strong><br>
    ${message2}
 </div>
-<jsp:include page="/includes/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -5,9 +5,9 @@
 <head>
 <title>Bullhorn</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="/includes/bootstrap.jsp"></jsp:include>
+<jsp:include page="bootstrap.jsp"></jsp:include>
   </head>
-  <body>
+  <body background="/images/news_background.jpg">
     <h1>Login</h1>
 
     <div class="container">
@@ -30,6 +30,6 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<jsp:include page="/includes/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

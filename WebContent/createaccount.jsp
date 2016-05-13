@@ -16,8 +16,8 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
 <title>BullHorn</title>
 </head>
-<body>
-
+<body background="/images/news_background.jpg">
+This is the create account page
 <div class="jumbotron" align = "center">
   <h2> Create a new account</h2>      
   <p>You're almost there!</p>

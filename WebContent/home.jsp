@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Bullhorn</title>
-<jsp:include page="/includes/bootstrap.jsp"></jsp:include>
+<jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
-<body>
-<jsp:include page="/includes/navbar.jsp"></jsp:include>
-<jsp:include page="/includes/footer.jsp"></jsp:include>
+<body background="/images/news_background.jpg">
+This is the home page
+<jsp:include page="navbar.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
