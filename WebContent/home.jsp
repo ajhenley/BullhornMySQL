@@ -7,7 +7,7 @@
 <title>Bullhorn</title>
 <jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
-<body background="/images/news_background.jpg">
+<body background="images/background_1280.jpg">
 This is the home page
 <jsp:include page="navbar.jsp"></jsp:include>
 <jsp:include page="footer.jsp"></jsp:include>

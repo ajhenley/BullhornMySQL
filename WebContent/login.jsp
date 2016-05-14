@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="bootstrap.jsp"></jsp:include>
   </head>
-  <body background="/images/news_background.jpg">
+  <body background="images/background_1280.jpg">
     <h1>Login</h1>
 
     <div class="container">
