@@ -7,19 +7,11 @@
 <title>BullHorn</title>
 <jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
-<body background="images/background_1280.jpg">
+<body>
 This is the profile page
 <jsp:include page="navbar.jsp"></jsp:include>
 
-<div class="alert alert-success">
-  <strong>Profile</strong><br>
-   ${message}
-</div>
 
-<div class="alert alert-success">
-  <strong>Posts</strong><br>
-   ${message2}
-</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

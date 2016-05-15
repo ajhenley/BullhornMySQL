@@ -16,13 +16,12 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
 <title>BullHorn</title>
 </head>
-<body background="/images/news_background.jpg">
-This is the create account page
+<body>
 <div class="jumbotron" align = "center">
   <h2> Create a new account</h2>      
   <p>You're almost there!</p>
 </div>
-
+<h1>This is the create account page</h1>
 <div align="center">
 <form action="Account" method="post">
 <label >Username: </label>

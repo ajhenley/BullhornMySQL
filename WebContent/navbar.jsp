@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="images/bullhornlogo50x50.png" alt="Bullhorn Logo"/>&nbsp;Bullhorn
+      <img src="images/bullhornlogo50x50.png" alt="Bullhorn Logo"/>&nbsp;<h2>Bullhorn</h2>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,8 @@
     
     
       <ul class="nav navbar-nav">
-        <li class="active"><a href="newsfeed.jsp">Newsfeed<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="home.jsp">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="newsfeed.jsp">News Feed</a></li>
         <li><a href="advancedsearch.jsp">Advanced Search</a></li>
        <!-- 
         <li class="dropdown">
@@ -44,7 +45,9 @@
       </form>
       
       <ul class="nav navbar-nav navbar-right">
+      <% if (session.getAttribute("user") != null) { %>
         <li><a href="profile.jsp"><img alt="Dave" src="<%=util.MD5Util.GetGravatarURL("dave45678@gmail.com", 30) %>">Dave Wolf</a></li>
+      <% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Options <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -1,2 +1,2 @@
-# BootcampFiles
-Project placeholder for bootcamp files
+#Bullhorn Bootstrap project
+

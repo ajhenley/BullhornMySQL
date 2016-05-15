@@ -10,7 +10,9 @@
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
 
-<h1>This is the support page</h1>
+<h1>This can't be good.</h1>
+<img src="images/failure640.jpg" alt="This is bad" width="500"/>
+
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

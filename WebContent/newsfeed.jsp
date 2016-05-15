@@ -7,9 +7,23 @@
 <title>BullHorn</title>
 <jsp:include page="bootstrap.jsp"></jsp:include>
 </head>
-<body background="images/background_1280.jpg">
-This is the newsfeed page
+<body>
 <jsp:include page="navbar.jsp"></jsp:include>
+<h1>This is the newsfeed page</h1>
+<div class="container">
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Username</th><th>Post</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+    
+    </tbody>
+    </table>
+
+</div>
+
+
+
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
