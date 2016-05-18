@@ -1,9 +1,11 @@
 package customTools;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+
 import model.Bhpost;
 
 public class DbBullhorn {
@@ -11,12 +13,13 @@ public class DbBullhorn {
 	public static void insert(Bhpost bhPost) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		
+		System.out.println("DbBullhorn: begin transaction");
 		try {
 			trans.begin();
 			em.persist(bhPost);
 			trans.commit();
 		} catch (Exception e) {
+			System.out.println("DbBullhorn: something bad has happened....");
 			System.out.println(e);
 			trans.rollback();
 		} finally {

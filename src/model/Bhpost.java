@@ -2,12 +2,11 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 
 
 /**
- * The persistent class for the BHPOST database table.
+ * The persistent class for the bhpost database table.
  * 
  */
 @Entity
@@ -16,8 +15,8 @@ public class Bhpost implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long postid;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int postid;
 
 	@Temporal(TemporalType.DATE)
 	private Date postdate;
@@ -26,17 +25,17 @@ public class Bhpost implements Serializable {
 
 	//bi-directional many-to-one association to Bhuser
 	@ManyToOne
-	@JoinColumn(name="USERID")
+	@JoinColumn(name="BHUSERID")
 	private Bhuser bhuser;
 
 	public Bhpost() {
 	}
 
-	public long getPostid() {
+	public int getPostid() {
 		return this.postid;
 	}
 
-	public void setPostid(long postid) {
+	public void setPostid(int postid) {
 		this.postid = postid;
 	}
 

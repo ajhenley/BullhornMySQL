@@ -61,33 +61,29 @@ public class DbUser {
 	}
 
 
-	public static long isValidUser(Bhuser user)
+	public static boolean isValidUser(Bhuser user)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
-		String qString = "Select b.userid from Bulluser b where b.username = :username and b.userpass = :userpass";
+		String qString = "Select count(b.bhuserid) from Bhuser b where b.useremail = :useremail and b.userpassword = :userpass";
 		Query q = em.createQuery(qString);
-		q.setParameter("username", user.getUsername());
+		boolean result = false;
+		q.setParameter("useremail", user.getUseremail());
 		q.setParameter("userpass", user.getUserpassword());
 		
 		try{
 			long userId = (long) q.getSingleResult();
-			System.out.println("userId =" + userId);
 			if (userId > 0)
 			{
-				return userId;
+				result = true;
 			}
-			else
-			{
-				return 0;
-			}
-			
 		}catch (Exception e){
 			
-			return 0;
+			result = false;
 		}
 		finally{
 				em.close();		
 		}	
+		return result;
 			
 	}
 	

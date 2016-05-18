@@ -37,20 +37,19 @@ public class PostServ extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//get user information from session so we can connect to the db
-		User user = (User)session.getAttribute("user");
+		Bhuser user = (Bhuser)session.getAttribute("user");
 		
 		
 		//get  a populated bhuser object since we'll add that to the post
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		String query = "select u from Bhuser u where u.useremail=:email";
 		TypedQuery<Bhuser> q = em.createQuery(query,Bhuser.class);
-		//q.setParameter("email",user.getEmail());
-		q.setParameter("email","bart@fox.net");
+		q.setParameter("email",user.getUseremail());
 		
 		Bhuser bhUser = null;
 		try {
 			bhUser = q.getSingleResult();
-			System.out.println("The user id is: " + bhUser.getUserid());
+			System.out.println("The user id is: " + bhUser.getBhuserid());
 			nextURL = "/newsfeed.jsp";
 		} catch (NoResultException e){
 			System.out.println(e);
@@ -61,7 +60,6 @@ public class PostServ extends HttpServlet {
 		}
 				
 		Bhpost bhPost = new Bhpost();
-		bhPost.setPostid(1L);
 		bhPost.setBhuser(bhUser);
 		bhPost.setPostdate(postdate);
 		bhPost.setPosttext(posttext);

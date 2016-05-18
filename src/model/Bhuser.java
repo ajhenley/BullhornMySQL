@@ -7,7 +7,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the BHUSER database table.
+ * The persistent class for the bhuser database table.
  * 
  */
 @Entity
@@ -16,8 +16,8 @@ public class Bhuser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long userid;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int bhuserid;
 
 	@Temporal(TemporalType.DATE)
 	private Date joindate;
@@ -37,12 +37,12 @@ public class Bhuser implements Serializable {
 	public Bhuser() {
 	}
 
-	public long getUserid() {
-		return this.userid;
+	public int getBhuserid() {
+		return this.bhuserid;
 	}
 
-	public void setUserid(long userid) {
-		this.userid = userid;
+	public void setBhuserid(int bhuserid) {
+		this.bhuserid = bhuserid;
 	}
 
 	public Date getJoindate() {
