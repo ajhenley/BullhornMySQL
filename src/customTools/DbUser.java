@@ -8,7 +8,7 @@ import model.Bhuser;
 
 public class DbUser {
 
-	public static Bhuser getUser(long userID)
+	public static Bhuser getUser(int userID)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		Bhuser user = em.find(Bhuser.class, userID);

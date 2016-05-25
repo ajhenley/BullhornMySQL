@@ -32,7 +32,6 @@ public class LoginServlet extends HttpServlet {
 		//String remember = request.getParameter("remember");
 		String nextURL = "/error.jsp";
 		
-		
 		//get an instance of the session so we can set attributes to it
 		//the JSP and NavBar will read from the session 
 		//The session is one of the primary ways we maintain state

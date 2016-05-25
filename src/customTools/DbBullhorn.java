@@ -59,7 +59,7 @@ public class DbBullhorn {
 
 	public static List<Bhpost> bhPost (){
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
-		String qString = "select b from Bullhorn b";
+		String qString = "select b from Bhpost b";
 		
 		List<Bhpost> posts = null;
 		try{
@@ -75,11 +75,11 @@ public class DbBullhorn {
 		return posts;
 	}
 	
-	public static List<Bhpost> postsofUser(long userid)
+	public static List<Bhpost> postsofUser(int userid)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> userposts = null;
-		String qString = "select b from Bullhorn b where b.userid = :userid";
+		String qString = "select b from Bhpost b where b.userid = :userid";
 		
 		try{
 			Query query = em.createQuery(qString);
@@ -99,7 +99,7 @@ public class DbBullhorn {
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> searchposts = null;
-		String qString = "select b from Bullhorn b where b.post like :search";
+		String qString = "select b from Bhpost b where b.Bhpost like :search";
 		
 		try{
 			Query query = em.createQuery(qString);

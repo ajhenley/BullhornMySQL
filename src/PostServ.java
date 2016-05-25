@@ -50,7 +50,7 @@ public class PostServ extends HttpServlet {
 		try {
 			bhUser = q.getSingleResult();
 			System.out.println("The user id is: " + bhUser.getBhuserid());
-			nextURL = "/newsfeed.jsp";
+			nextURL = "/Newsfeed";
 		} catch (NoResultException e){
 			System.out.println(e);
 		} catch (NonUniqueResultException e){
@@ -58,7 +58,8 @@ public class PostServ extends HttpServlet {
 		} finally {
 			em.close();
 		}
-				
+		
+		//insert the post
 		Bhpost bhPost = new Bhpost();
 		bhPost.setBhuser(bhUser);
 		bhPost.setPostdate(postdate);
@@ -66,20 +67,9 @@ public class PostServ extends HttpServlet {
 		
 		DbBullhorn.insert(bhPost);
 		
+		//go to the newsfeed or error
 		getServletContext().getRequestDispatcher(nextURL).forward(request, response);
 		
-		/*
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		try{
-			out.println(posttext + "<br />");
-		}catch (Exception ex){
-			//go to error page
-			//getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
-		}finally{
-			out.close();
-		}
-		*/
 	}
 
 }

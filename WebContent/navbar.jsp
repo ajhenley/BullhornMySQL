@@ -43,16 +43,17 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      
+    
       <ul class="nav navbar-nav navbar-right">
       <% if (session.getAttribute("user") != null) { %>
-        <li><a href="profile.jsp"><img alt="Dave" src="<%=util.MD5Util.GetGravatarURL("dave45678@gmail.com", 30) %>">Dave Wolf</a></li>
+        <li><a href="profile.jsp"><img alt="Dave" src="<c:out value="${user.gravatarURL(30)}"/>"/>&nbsp;<c:out value="value="${user.userName}"/></a></li>
       <% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="LoginServlet?action=logout">Logout</a></li>
+            <!--  <li><a href="LoginServlet?action=logout">Logout</a></li>-->
             
+            <li>
               <!-- Bootstrap allows me to put a form here and it will show in the navbar.
                    I want to use a form so it can call the servlet with the Post method.              
                -->
@@ -60,7 +61,7 @@
                   <input type="hidden" name="action" id="action" value="logout"/>
                   <button class="btn btn-default" id="addBookButton">Logout</button>        
                </form>
-            
+            </li>
             <li><a href="profile.jsp">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="support.jsp">Feedback</a></li>
