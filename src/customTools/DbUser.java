@@ -2,8 +2,11 @@ package customTools;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
+import util.MD5Util;
 import model.Bhuser;
 
 public class DbUser {
@@ -28,6 +31,11 @@ public class DbUser {
 		} finally {
 			em.close();
 		}
+	}
+	public static String getGravatarURL(String email, Integer size){
+		String url = "http://www.gravatar.com/avatar/" +
+				MD5Util.md5Hex(email) + "?s=" + size.toString();
+		return url;
 	}
 
 	public static void update(Bhuser bhUser) {
@@ -61,6 +69,23 @@ public class DbUser {
 	}
 
 
+	public static Bhuser getUserByEmail(String email)
+	{
+		EntityManager em = DbUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bhuser u where u.useremail = :useremail";
+		TypedQuery<Bhuser> q = em.createQuery(qString, Bhuser.class);
+		q.setParameter("useremail", email);
+		Bhuser user = null;
+		try {
+			user = q.getSingleResult();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return user;
+		
+	}
 	public static boolean isValidUser(Bhuser user)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();

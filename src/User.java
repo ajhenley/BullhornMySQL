@@ -1,8 +1,8 @@
 
 public class User {
-	String email;
-	String userName;
-	String gravatarURL;
+	private String email;
+	private String userName;
+//	private String gravatarURL;
 	
 	public String getEmail() {
 		return email;
@@ -16,8 +16,8 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getGravatarURL(int size) {
-		return util.MD5Util.GetGravatarURL(email, size);
-	}
+//	public String getGravatarURL(int size) {
+//		return util.MD5Util.GetGravatarURL(email, size);
+//	}
 
 }

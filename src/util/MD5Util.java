@@ -27,12 +27,6 @@ public class MD5Util {
       } catch (UnsupportedEncodingException e) {
       }
       return null;
-  }
-  public static String GetGravatarURL(String email, Integer size){
-	  String url = "http://www.gravatar.com/avatar/" +
-			  MD5Util.md5Hex(email) + "?s=" + size.toString();
-	  return url;
-  }
-  
+  } 
 }
 

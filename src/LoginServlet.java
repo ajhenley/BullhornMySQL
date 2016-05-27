@@ -38,21 +38,26 @@ public class LoginServlet extends HttpServlet {
 		//in an otherwise stateless web application
 		HttpSession session = request.getSession();
 		
-		
+		//create a variable to hold our user. The variable must be defined
+		//so it is visible to all code within the method. So define it here
+		//but set it to null since we don't have a user yet.
+		Bhuser user = null;
 		//create an instance of the user and put it in the session
-		//only add the user to the session if the user if valid
-		//because the presence of the user is used to determine who 
+		//only add the user to the session if the user if valid.
+		//The presence of the user is used to determine who 
 		//owns the site and will be used to connect to the database
 		if (action.equals("logout")){
 			session.invalidate();
 			nextURL = "/login.jsp";
 			
 		}else{
-			Bhuser user = new Bhuser();
-			user.setUseremail(useremail);
-			user.setUserpassword(userpassword);
+			user = DbUser.getUserByEmail(useremail);
 			if (DbUser.isValidUser(user)){
 				session.setAttribute("user", user);
+				int size = 30;
+				String gravatarURL = DbUser.getGravatarURL(useremail, size);
+				System.out.println(gravatarURL);
+				session.setAttribute("gravatarURL", gravatarURL);
 				nextURL = "/home.jsp";
 			}else{
 				nextURL = "/login.jsp";

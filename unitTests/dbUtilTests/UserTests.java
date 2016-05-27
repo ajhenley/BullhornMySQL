@@ -18,16 +18,23 @@ public class UserTests {
 
 	@Test
 	public void test() {
-		String useremail = "larry12345@gmail.com";
-		String userpassword = "password";
-		Boolean result = false;
 		
-		Bhuser user = new Bhuser();
-		user.setUseremail(useremail);
-		user.setUserpassword(userpassword);
+		
+		Bhuser user = null;
+		user = DbUser.getUser(1);		
+//		assertTrue(DbUser.isValidUser(user));
+		assertTrue(true);
 				
-		assertTrue(DbUser.isValidUser(user));
-				
+	}
+	@Test
+	public void GetUserByEmailTest() {
+		String useremail = "dave45678@gmail.com";
+
+		Bhuser user = null;
+		user = DbUser.getUserByEmail(useremail);
+		assertTrue(user.getBhuserid()==1);
+			
+		
 	}
 
 }

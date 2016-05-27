@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="home.jsp">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="newsfeed.jsp">News Feed</a></li>
-        <li><a href="advancedsearch.jsp">Advanced Search</a></li>
+        <!--  <li><a href="advancedsearch.jsp">Advanced Search</a></li>-->
        <!-- 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -46,7 +46,7 @@
     
       <ul class="nav navbar-nav navbar-right">
       <% if (session.getAttribute("user") != null) { %>
-        <li><a href="profile.jsp"><img alt="Dave" src="<c:out value="${user.gravatarURL(30)}"/>"/>&nbsp;<c:out value="value="${user.userName}"/></a></li>
+        <li><a href="ProfileServlet"><img alt="${user.username}" src="${gravatarURL}"/>&nbsp;${user.username}</a></li>
       <% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Options <span class="caret"></span></a>
