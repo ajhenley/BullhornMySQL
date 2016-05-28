@@ -46,14 +46,14 @@ public class ProfileServlet extends HttpServlet {
 			int imgSize = 120;
 			
 		      // SimpleDateFormat can be used to control the date/time display format:
-		      //   E (day of week): 3E or fewer (in text xxx), >3E (in full text)
-		      //   M (month): M (in number), MM (in number with leading zero)
-		      //              3M: (in text xxx), >3M: (in full text full)
+		      //   E (day of week): 3E or fewer (as text xxx), >3E (as full text)
+		      //   M (month): M (as number), MM (as number with leading zero)
+		      //              3M: (as text xxx), >3M: (as full text)
 		      //   h (hour): h, hh (with leading zero)
 		      //   m (minute)
 		      //   s (second)
 		      //   a (AM/PM)
-		      //   H (hour in 0 to 23)
+		      //   H (hour from 0 to 23)
 		      //   z (time zone)
 			SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
             String d = sdf.format(user.getJoindate());

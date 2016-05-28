@@ -20,7 +20,10 @@
     </thead>
     <tbody>
     <c:forEach var="post" items="${posts}">
-        <tr><td><c:out value="${post.bhuser.useremail}"/></td><td><c:out value="${post.posttext}"/></td><td><fmt:formatDate value="${post.postdate}" pattern="yy-MMM-dd"/></td></tr>
+        <tr><td><c:out value="${post.bhuser.useremail}"/></td>
+        <td><c:out value="${post.posttext}"/></td>
+        <td><fmt:formatDate value="${post.postdate}" pattern="yy-MMM-dd"/></td>
+        </tr>
     </c:forEach>
     </tbody>
     </table>

@@ -18,7 +18,7 @@
     
       <ul class="nav navbar-nav">
         <li class="active"><a href="home.jsp">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="newsfeed.jsp">News Feed</a></li>
+        <li><a href="Newsfeed">News Feed</a></li>
         <!--  <li><a href="advancedsearch.jsp">Advanced Search</a></li>-->
        <!-- 
         <li class="dropdown">
@@ -62,7 +62,7 @@
                   <button class="btn btn-default" id="addBookButton">Logout</button>        
                </form>
             </li>
-            <li><a href="profile.jsp">Edit Profile</a></li>
+            <li><a href="ProfileServlet">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="support.jsp">Feedback</a></li>
           </ul>

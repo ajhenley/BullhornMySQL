@@ -3,7 +3,6 @@ package customTools;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import util.MD5Util;
@@ -21,8 +20,8 @@ public class DbUser {
 	public static void insert(Bhuser bhUser) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		trans.begin();
 		try {
+			trans.begin();
 			em.persist(bhUser);
 			trans.commit();
 		} catch (Exception e) {
@@ -41,8 +40,8 @@ public class DbUser {
 	public static void update(Bhuser bhUser) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		trans.begin();
 		try {
+			trans.begin();
 			em.merge(bhUser);
 			trans.commit();
 		} catch (Exception e) {
@@ -56,8 +55,8 @@ public class DbUser {
 	public static void delete(Bhuser bhUser) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		trans.begin();
 		try {
+			trans.begin();
 			em.remove(em.merge(bhUser));
 			trans.commit();
 		} catch (Exception e) {
@@ -72,7 +71,8 @@ public class DbUser {
 	public static Bhuser getUserByEmail(String email)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bhuser u where u.useremail = :useremail";
+		String qString = "Select u from Bhuser u "
+				+ "where u.useremail = :useremail";
 		TypedQuery<Bhuser> q = em.createQuery(qString, Bhuser.class);
 		q.setParameter("useremail", email);
 		Bhuser user = null;
@@ -89,14 +89,15 @@ public class DbUser {
 	public static boolean isValidUser(Bhuser user)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
-		String qString = "Select count(b.bhuserid) from Bhuser b where b.useremail = :useremail and b.userpassword = :userpass";
-		Query q = em.createQuery(qString);
+		String qString = "Select count(b.bhuserid) from Bhuser b "
+			+ "where b.useremail = :useremail and b.userpassword = :userpass";
+		TypedQuery<Long> q = em.createQuery(qString,Long.class);
 		boolean result = false;
 		q.setParameter("useremail", user.getUseremail());
 		q.setParameter("userpass", user.getUserpassword());
 		
 		try{
-			long userId = (long) q.getSingleResult();
+			long userId = q.getSingleResult();
 			if (userId > 0)
 			{
 				result = true;

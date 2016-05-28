@@ -12,7 +12,7 @@
 <h1>This is the home page</h1>
 <form role="form" action="PostServ" method="post" onsubmit="return validate(this);">
                 <div class="form-group">  
-                    <label for="post">Create New Post (140 char):</label>
+                    <label for="post">Create New Post (141 char):</label>
                     <textarea name= "posttext" id="posttext" class="form-control" rows="2" placeholder= "Express yourself!" maxlength="141"></textarea>
                     <div id="textarea_feedback"></div>
                     </div> 

@@ -20,12 +20,13 @@
 		<h2>Join Date: ${userjoindate}</h2>
 	</c:when>
 	<c:when test="${editProfile==true}">
-		<form action="" method="post">
-		<h1><img src="${userimage}" alt="${username}"/>&nbsp;&nbsp;Edit Profile for ${username}</h1>
-		<h2>Email: <input type="text" value="${useremail}"/></h2>
-		<h2>Motto: <input type="text" value="${usermotto}"/></h2>
-		<h2>Join Date: <input type="text" value="${userjoindate}"/></h2>
-		<input type="submit" value="Save Changes"/>
+		<form action="ProfileServlet" method="post">
+			<input type="hidden" name="action" value="editProfile">
+			<h1><img src="${userimage}" alt="${username}"/>&nbsp;&nbsp;Edit Profile for ${username}</h1>
+			<h2>Email: <input type="text" name="useremail" value="${useremail}"/></h2>
+			<h2>Motto: <input type="text" name="usermotto" value="${usermotto}"/></h2>
+			<h2>Join Date: <input type="text" name="userjoindate" value="${userjoindate}"/></h2>
+			<input type="submit" value="Save Changes"/>
 		</form>
 	</c:when>
 </c:choose>

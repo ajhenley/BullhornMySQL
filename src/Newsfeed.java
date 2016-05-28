@@ -38,30 +38,6 @@ public class Newsfeed extends HttpServlet {
 		//add posts to session
 		session.setAttribute("posts", posts);
 		//display posts in newsfeed.jsp
-		/*
-		String message = "<div class=\"container\">";
-		message += "<table class=\"table table-bordered\"><thead><tr><th>Username</th><th>Post</th><th>Date</th></tr></thead><tbody>";
-		for (Bhpost bpost : posts)
-		{
-			int userid = bpost.getBhuser().getBhuserid();
-			Bhuser user = DbUser.getUser(userid);
-			message += "<tr>";
-			message += "<td>" + user.getUsername() + "</td>";
-			message += "<td>" + bpost.getPosttext() + "</td>";
-			message += "<td>" + bpost.getPostdate() + "</td>";
-			message += "</tr>";
-		}
-		message += "</tbody></table>";
-		message += "</div>";
-		System.out.println(message);
-		request.setAttribute("message", message);
-		*/
-		
-		
-		
-		
-		
-		
 		nextURL = "/newsfeed.jsp";
 		//redirect to next page as indicated by the value of the nextURL variable
 		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
