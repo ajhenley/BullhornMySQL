@@ -20,14 +20,18 @@ public class DbUser {
 	public static void insert(Bhuser bhUser) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
+		System.out.println("DbBullhorn: begin transaction");
 		try {
 			trans.begin();
 			em.persist(bhUser);
+			System.out.println("DbBullhorn: commit transaction");
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("DbBullhorn: rollback transaction");
 			trans.rollback();
 		} finally {
+			System.out.println("DbBullhorn: close em");
 			em.close();
 		}
 	}

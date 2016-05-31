@@ -65,7 +65,8 @@ public class LoginServlet extends HttpServlet {
 			
 		}
 		//redirect to next page as indicated by the value of the nextURL variable
-		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
+		//getServletContext().getRequestDispatcher(nextURL).forward(request,response);
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 }

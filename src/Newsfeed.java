@@ -29,12 +29,25 @@ public class Newsfeed extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int filterByUserID = 0; 
+		String searchtext = "";
+		
 		String nextURL = "error.jsp";
 		//get user out of session
 		HttpSession session = request.getSession();
 		
-		//get all posts out of db (not just the current user)
-		List<Bhpost> posts = DbBullhorn.bhPost();
+		//get posts based on parameters; if no parameters then get all posts
+		List<Bhpost> posts = null;
+		if (request.getParameter("userid")!=null){
+			filterByUserID = Integer.parseInt(request.getParameter("userid"));
+			posts = DbBullhorn.postsofUser(filterByUserID);
+		}else if (request.getParameter("searchtext")!=null){
+			searchtext = request.getParameter("searchtext").toString();
+			posts = DbBullhorn.searchPosts(searchtext);
+		}else{
+			posts = DbBullhorn.bhPost();
+		}
+		
 		//add posts to session
 		session.setAttribute("posts", posts);
 		//display posts in newsfeed.jsp

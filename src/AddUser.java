@@ -33,8 +33,9 @@ public class AddUser extends HttpServlet {
 		//check if user exists (by email)
 		Bhuser u = DbUser.getUserByEmail(userEmail);
 		
-		//add user if they don't exits
+		//create user and add them if they don't exit
 		if (u == null){
+			u = new Bhuser();
 			u.setUsername(userName);
 			u.setUseremail(userEmail);
 			u.setUserpassword(userPassword);

@@ -37,9 +37,9 @@
         
       </ul>
     
-      <form class="navbar-form navbar-right" role="search" action="SearchServlet" method="get">
+      <form class="navbar-form navbar-right" role="search" action="Newsfeed" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="query">
+          <input type="text" class="form-control" placeholder="Search" name="searchtext">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>

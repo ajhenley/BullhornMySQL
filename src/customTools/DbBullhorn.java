@@ -13,14 +13,11 @@ public class DbBullhorn {
 	public static void insert(Bhpost bhPost) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		System.out.println("DbBullhorn: begin transaction");
 		try {
 			trans.begin();
 			em.persist(bhPost);
 			trans.commit();
 		} catch (Exception e) {
-			System.out.println("DbBullhorn: something bad has happened....");
-			System.out.println(e);
 			trans.rollback();
 		} finally {
 			em.close();
@@ -35,7 +32,6 @@ public class DbBullhorn {
 			em.merge(bhPost);
 			trans.commit();
 		} catch (Exception e) {
-			System.out.println(e);
 			trans.rollback();
 		} finally {
 			em.close();
@@ -79,7 +75,7 @@ public class DbBullhorn {
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> userposts = null;
-		String qString = "select b from Bhpost b where b.userid = :userid";
+		String qString = "select b from Bhpost b where b.bhuser.bhuserid = :userid";
 		
 		try{
 			TypedQuery<Bhpost> query = em.createQuery(qString,Bhpost.class);
@@ -98,7 +94,7 @@ public class DbBullhorn {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> userposts = null;
 		String qString = "select b from Bhpost b "
-				+ "where b.useremail = :useremail";
+				+ "where b.bhuser.useremail = :useremail";
 		
 		try{
 			TypedQuery<Bhpost> query = em.createQuery(qString,Bhpost.class);
@@ -118,7 +114,7 @@ public class DbBullhorn {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> searchposts = null;
 		String qString = "select b from Bhpost b "
-				+ "where b.Bhpost like :search";
+				+ "where b.posttext like :search";
 		
 		try{
 			TypedQuery<Bhpost> query = em.createQuery(qString,Bhpost.class);

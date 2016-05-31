@@ -17,7 +17,7 @@
 	<h1>Add New User</h1>
 	<h2>Name: <input type="text" name="userName" value=""/></h2>
 	<h2>Email: <input type="text" name="userEmail" value=""/></h2>
-	<h2>Email: <input type="text" name="userPassword" value=""/></h2>
+	<h2>Password: <input type="password" name="userPassword" value=""/></h2>
 	<h2>Motto: <input type="text" name="userMotto" value=""/></h2>
 	<!-- <h2>Join Date: <input type="text" value=""/></h2>-->
 	<input type="submit" value="Join Us"/>
