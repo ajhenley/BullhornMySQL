@@ -20,7 +20,7 @@
     </thead>
     <tbody>
     <c:forEach var="post" items="${posts}">
-        <tr><td><c:out value="${post.bhuser.useremail}"/></td>
+        <tr><td><a href="ProfileServlet?action=viewprofile&userid=<c:out value="${post.bhuser.bhuserid}"/>"><c:out value="${post.bhuser.useremail}"/></a></td>
         <td><c:out value="${post.posttext}"/></td>
         <td><fmt:formatDate value="${post.postdate}" pattern="yy-MMM-dd"/></td>
         </tr>

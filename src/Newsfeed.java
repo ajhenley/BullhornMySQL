@@ -25,16 +25,26 @@ public class Newsfeed extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//since some of the parameters come in the url, pass get to post where all code is handled
 		doPost(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int filterByUserID = 0; 
 		String searchtext = "";
 		
-		String nextURL = "error.jsp";
-		//get user out of session
+		String nextURL = "/error.jsp";
+		//get user out of session. If they don't exist then send them back to the login page.
+		//kill the session while you're at it.
 		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null){
+			//http://stackoverflow.com/questions/13638446/checking-servlet-session-attribute-value-in-jsp-file
+			nextURL = "/login.jsp";
+			session.invalidate();
+			response.sendRedirect(request.getContextPath() + nextURL);
+		    return;
+		}
 		
 		//get posts based on parameters; if no parameters then get all posts
 		List<Bhpost> posts = null;

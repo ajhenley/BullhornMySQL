@@ -46,7 +46,7 @@
     
       <ul class="nav navbar-nav navbar-right">
       <% if (session.getAttribute("user") != null) { %>
-        <li><a href="ProfileServlet"><img alt="${user.username}" src="${gravatarURL}"/>&nbsp;${user.username}</a></li>
+        <li><a href="ProfileServlet?userid=${user.bhuserid}&action=viewprofile"><img alt="${user.username}" src="${gravatarURL}"/>&nbsp;${user.username}</a></li>
       <% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Options <span class="caret"></span></a>
@@ -62,7 +62,7 @@
                   <button class="btn btn-default" id="addBookButton">Logout</button>        
                </form>
             </li>
-            <li><a href="ProfileServlet">Edit Profile</a></li>
+            <li><a href="ProfileServlet?userid=${user.bhuserid }&action=editprofile">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="support.jsp">Feedback</a></li>
           </ul>

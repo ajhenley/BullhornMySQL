@@ -10,8 +10,11 @@
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
 
-<h1>This can't be good.</h1>
-<img src="images/failure640.jpg" alt="This is bad" width="500"/>
+
+	<div style="text-align:center">
+		<h1>Something's Wrong...</h1>
+		<img src="images/error640.png" alt="This is bad" width="300"/>
+	</div>
 
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
