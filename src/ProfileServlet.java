@@ -39,6 +39,17 @@ public class ProfileServlet extends HttpServlet {
 		Bhuser profileUser = null;
 		Bhuser loggedInUser = null;
 		
+		//get user out of session. If they don't exist then send them back to the login page.
+		//kill the session while you're at it.
+		if (session.getAttribute("user")==null){
+			//http://stackoverflow.com/questions/13638446/checking-servlet-session-attribute-value-in-jsp-file
+			nextURL = "/login.jsp";
+			session.invalidate();
+			response.sendRedirect(request.getContextPath() + nextURL);
+		    return;//return prevents an error
+		}
+		
+		
 		try{
 		userid = Integer.parseInt(request.getParameter("userid"));
 		action = request.getParameter("action");

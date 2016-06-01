@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//this page does not require user to be logged in
 		String useremail = request.getParameter("email");
 		String userpassword = request.getParameter("password");
 		String action = request.getParameter("action");

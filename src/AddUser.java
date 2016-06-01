@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Bhuser;
 import customTools.DbUser;
@@ -25,6 +26,7 @@ public class AddUser extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//This page does not require user to be logged in
 		String userName = request.getParameter("userName");
 		String userEmail = request.getParameter("userEmail");
 		String userPassword = request.getParameter("userPassword");

@@ -34,7 +34,16 @@ public class PostServ extends HttpServlet {
 		String posttext = request.getParameter("posttext");
 		String nextURL = "/error.jsp";
 		//need a reference to the session
+		//get user out of session. If they don't exist then send them back to the login page.
+		//kill the session while you're at it.
 		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null){
+			//http://stackoverflow.com/questions/13638446/checking-servlet-session-attribute-value-in-jsp-file
+			nextURL = "/login.jsp";
+			session.invalidate();
+			response.sendRedirect(request.getContextPath() + nextURL);
+		    return;//return prevents an error
+		}
 		
 		//get user information from session so we can connect to the db
 		Bhuser user = (Bhuser)session.getAttribute("user");

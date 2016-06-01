@@ -14,27 +14,10 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    
-    
+ 
       <ul class="nav navbar-nav">
         <li class="active"><a href="home.jsp">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="Newsfeed">News Feed</a></li>
-        <!--  <li><a href="advancedsearch.jsp">Advanced Search</a></li>-->
-       <!-- 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-        -->
-        
+        <li><a href="Newsfeed">News Feed</a></li>      
       </ul>
     
       <form class="navbar-form navbar-right" role="search" action="Newsfeed" method="get">
@@ -51,9 +34,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <!--  <li><a href="LoginServlet?action=logout">Logout</a></li>-->
-            
             <li>
+              <!-- <li><a href="LoginServlet?action=logout">Logout</a></li>-->
               <!-- Bootstrap allows me to put a form here and it will show in the navbar.
                    I want to use a form so it can call the servlet with the Post method.              
                -->
@@ -62,6 +44,7 @@
                   <button class="btn btn-default" id="addBookButton">Logout</button>        
                </form>
             </li>
+            <li><a href="Newsfeed?userid=${user.bhuserid }">Show my Posts</a></li>
             <li><a href="ProfileServlet?userid=${user.bhuserid }&action=editprofile">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="support.jsp">Feedback</a></li>

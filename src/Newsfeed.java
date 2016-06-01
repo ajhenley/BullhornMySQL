@@ -43,7 +43,7 @@ public class Newsfeed extends HttpServlet {
 			nextURL = "/login.jsp";
 			session.invalidate();
 			response.sendRedirect(request.getContextPath() + nextURL);
-		    return;
+		    return;//return prevents an error
 		}
 		
 		//get posts based on parameters; if no parameters then get all posts
